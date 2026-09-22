@@ -21,7 +21,9 @@ CREATE USER 'Usuario'@'localhost' IDENTIFIED BY 'mypassword';
 o
 
 * Crear usuario remoto 'Usuario' con contraseña 'mypassword'
+```
 CREATE USER 'Usuario'@'%' IDENTIFIED BY 'mypassword';
+```
 
 * Conceder privilegios al usuario 'Torch' para todas las bases de datos y tablas
 ```
