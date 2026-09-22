@@ -30,8 +30,10 @@ GRANT ALL PRIVILEGES ON *.* TO 'Usuario'@'%' WITH GRANT OPTION;
 ```
 
 * Conceder privilegios para una base de datos específica (por ejemplo, 'mydatabase')
+```
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'localhost';
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'%';
+```
 
 * Aplicar los cambios de privilegios
 ```
