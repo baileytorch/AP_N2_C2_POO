@@ -25,15 +25,23 @@ o
 CREATE USER 'Usuario'@'%' IDENTIFIED BY 'mypassword';
 ```
 
-* Conceder privilegios al usuario 'Torch' para todas las bases de datos y tablas
+* Conceder privilegios al usuario 'Usuario' local para todas las bases de datos y tablas
 ```
 GRANT ALL PRIVILEGES ON *.* TO 'Usuario'@'localhost' WITH GRANT OPTION;
+```
+
+* Conceder privilegios al usuario 'Usuario' global para todas las bases de datos y tablas
+```
 GRANT ALL PRIVILEGES ON *.* TO 'Usuario'@'%' WITH GRANT OPTION;
 ```
 
-* Conceder privilegios para una base de datos específica (por ejemplo, 'mydatabase')
+* Conceder privilegios para una base de datos específica aal usuario 'Usuario' local  (por ejemplo, 'mydatabase')
 ```
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'localhost';
+```
+
+* Conceder privilegios para una base de datos específica aal usuario 'Usuario' global  (por ejemplo, 'mydatabase')
+```
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'%';
 ```
 
