@@ -13,37 +13,18 @@ Instalación ORM + Driver de base de datos
 pip install peewee pymysql
 ```
 
-Para usar las herraientas de automatización de peewee necesitamos crear un usuario con permisos y seguridad en nuestra base de datos.
+Para usar las herramientas de automatización de peewee necesitamos crear un usuario con permisos y seguridad en nuestra base de datos.
 * Crear usuario local 'Usuario' con contraseña 'mypassword'
 ```
 CREATE USER 'Usuario'@'localhost' IDENTIFIED BY 'mypassword';
 ```
-o
 
-* Crear usuario remoto 'Usuario' con contraseña 'mypassword'
-```
-CREATE USER 'Usuario'@'%' IDENTIFIED BY 'mypassword';
-```
 
-* Conceder privilegios al usuario 'Usuario' local para todas las bases de datos y tablas
-```
-GRANT ALL PRIVILEGES ON *.* TO 'Usuario'@'localhost' WITH GRANT OPTION;
-```
-
-* Conceder privilegios al usuario 'Usuario' global para todas las bases de datos y tablas
-```
-GRANT ALL PRIVILEGES ON *.* TO 'Usuario'@'%' WITH GRANT OPTION;
-```
-
-* Conceder privilegios para una base de datos específica aal usuario 'Usuario' local  (por ejemplo, 'mydatabase')
+* Conceder privilegios para mi base de datos específica al usuario local 'Usuario'  (por ejemplo, 'mydatabase')
 ```
 GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'localhost';
 ```
 
-* Conceder privilegios para una base de datos específica aal usuario 'Usuario' global  (por ejemplo, 'mydatabase')
-```
-GRANT ALL PRIVILEGES ON mydatabase.* TO 'Usuario'@'%';
-```
 
 * Aplicar los cambios de privilegios
 ```
