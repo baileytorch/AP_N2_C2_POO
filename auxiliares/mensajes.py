@@ -1,0 +1,1 @@
+defecto = 'DEFAULT 1'

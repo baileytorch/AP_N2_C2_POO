@@ -1,7 +1,7 @@
 -- Script de inserción para la tabla comunas
 -- Datos según el Código Único Territorial (CUT) de SUBDERE
 
-INSERT INTO comunas (codigo_comuna, nombre_comuna) VALUES
+INSERT INTO comunas (codigo_comuna, comuna) VALUES
 ('15101', 'Arica'),
 ('15102', 'Camarones'),
 ('15201', 'Putre'),
