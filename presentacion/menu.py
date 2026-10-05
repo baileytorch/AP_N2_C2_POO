@@ -1,5 +1,6 @@
 import sys
 from auxiliares import nombre_aplicacion,version_aplicacion,menu_superior,menu_biblioteca
+from presentacion.interaccion_biblioteca import lista_paises
 
 def menu_principal():
     print(f'\n{nombre_aplicacion} - {version_aplicacion}')
@@ -13,6 +14,10 @@ def menu_principal():
         if opcion_usuario == '1':
             for numero,nombre in menu_biblioteca.items():
                 print(f'[{numero}] - {nombre}')
+
+            opcion_sub_menu = input('\nIngrese su opción [0-2]: ')
+            if opcion_sub_menu == '1':
+                lista_paises()
         elif opcion_usuario == '2':
             print('Opción 2')
         elif opcion_usuario == '3':
