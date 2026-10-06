@@ -1,6 +1,7 @@
 import sys
 from auxiliares import nombre_aplicacion,version_aplicacion,menu_superior,menu_biblioteca
-from presentacion.interaccion_biblioteca import lista_paises
+from negocio.negocio_pais import lista_paises
+from presentacion.presentacion_biblioteca import solicitar_datos_pais
 
 def menu_principal():
     print(f'\n{nombre_aplicacion} - {version_aplicacion}')
@@ -18,6 +19,8 @@ def menu_principal():
             opcion_sub_menu = input('\nIngrese su opción [0-2]: ')
             if opcion_sub_menu == '1':
                 lista_paises()
+            elif opcion_sub_menu=='2':
+                solicitar_datos_pais()
         elif opcion_usuario == '2':
             print('Opción 2')
         elif opcion_usuario == '3':
