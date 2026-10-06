@@ -6,12 +6,12 @@ from datos.modelos.pais import Pais
 def lista_paises():
     # Instancia de la clase PrettyTable
     tabla_paises = PrettyTable()
-    tabla_paises.field_names = ['Id','País','Nacionalidad','ISO 2','ISO 3']
+    tabla_paises.field_names = ['Id','País','Nacionalidad','ISO 2','ISO 3','Habilitado']
 
     paises = listado_paises()
     if paises:
         for pais in paises:
-            tabla_paises.add_row([pais.id_pais, pais.pais, pais.nacionalidad, pais.iso2, pais.iso3])
+            tabla_paises.add_row([pais.id_pais, pais.pais, pais.nacionalidad, pais.iso2, pais.iso3, ('Deshabilitado', 'Habilitado')[pais.habilitado]])
         print(tabla_paises)
 
 def crear_pais(pais, nacionalidad, iso2, iso3):

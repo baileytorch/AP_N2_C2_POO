@@ -9,7 +9,8 @@ def listado_paises():
 def guardar_pais(pais:Pais):
     try:
         guardar_pais = pais.save()
-        print(guardar_pais)
+        if guardar_pais == 1:
+            print(f'Pais guardado con éxito con Id: {pais.id_pais}.')
     except IntegrityError as e:
         print(f"Error de clave unica o clave foránea: {e}")
     except OperationalError as e:

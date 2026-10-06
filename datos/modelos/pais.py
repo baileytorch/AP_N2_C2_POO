@@ -13,7 +13,7 @@ class Pais(BaseModel):
     nacionalidad = CharField(max_length=50,null=True)
     iso2 = CharField(max_length=2)
     iso3 = CharField(max_length=3)
-    habilitado = IntegerField(constraints=[SQL("DEFAULT 1")])
+    habilitado = IntegerField(default=1)
 
     class Meta:
         table_name = 'paises'
