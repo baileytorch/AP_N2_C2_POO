@@ -1,3 +1,3 @@
-from auxiliares.mensajes import defecto
+from auxiliares.mensajes import defecto,opcion_invalida,menu_anterior
 from auxiliares.data_aplicacion import nombre_aplicacion,version_aplicacion
 from auxiliares.menu import menu_superior,menu_biblioteca
