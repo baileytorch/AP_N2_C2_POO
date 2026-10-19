@@ -2,7 +2,7 @@ from datos.modelos.pais import Pais
 from peewee import IntegrityError, OperationalError, DataError, PeeweeException
 
 def listado_paises():
-    paises = Pais.select()
+    paises = Pais.select().where(Pais.habilitado == True)
     if paises:
         return paises
 
@@ -20,3 +20,8 @@ def guardar_pais(pais:Pais):
         print(f"Valor insertdo NO corresponde: {e}")
     except PeeweeException as e:
         print(f"No se pudieron guardar los datos por un error genérico: {e}")
+
+def obtener_pais(nombre=''):
+    if nombre != '':
+        pais_encontrado = Pais.get(Pais.pais == nombre)
+    return pais_encontrado

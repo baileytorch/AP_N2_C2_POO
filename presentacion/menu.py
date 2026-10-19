@@ -1,7 +1,8 @@
 import sys
 from auxiliares import nombre_aplicacion,version_aplicacion,menu_superior,menu_biblioteca,opcion_invalida,menu_anterior
 from presentacion.presentacion_biblioteca import mostrar_paises
-from presentacion.presentacion_biblioteca import solicitar_datos_pais
+from presentacion.presentacion_biblioteca import solicitar_datos_pais,modificar_pais,eliminar_pais
+from datos.modelos.pais import Pais
 
 def menu_principal():
     print(f'\n{nombre_aplicacion} - {version_aplicacion}')
@@ -22,7 +23,7 @@ def menu_principal():
                         case '1':
                             mostrar_paises()
                         case '2':
-                            solicitar_datos_pais()
+                            eliminar_pais()
                         case '0':
                             print(menu_anterior)
                             break
