@@ -1,0 +1,4 @@
+ALTER TABLE usuarios MODIFY COLUMN rut CHAR(12);
+ALTER TABLE usuarios ADD password VARCHAR(60) NULL;
+ALTER TABLE usuarios ENGINE=InnoDB;
+ALTER TABLE usuarios ADD UNIQUE(correo);
