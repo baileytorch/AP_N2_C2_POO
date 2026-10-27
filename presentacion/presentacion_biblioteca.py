@@ -1,5 +1,5 @@
 from negocio.negocio_pais import lista_paises,crear_pais,actualizar_pais
-from datos.repositorios.repositorio_paises import obtener_pais
+from datos.repositorios.repositorio_paises import obtener_pais_nombre
 from prettytable import PrettyTable
 from datos.modelos.pais import Pais
 from auxiliares.mensajes import mensaje_error
@@ -37,7 +37,7 @@ def modificar_pais():
         nombre_pais = ''
         while nombre_pais == '':
             nombre_pais = input('Ingrese nombre país a modificar: ')
-            pais_encontrado = obtener_pais(nombre_pais)
+            pais_encontrado = obtener_pais_nombre(nombre_pais)
             if pais_encontrado:
                 print(f'\nID: {pais_encontrado.id_pais} - Nombre: {pais_encontrado.pais}')
                 print(f'Nacionalidad: {pais_encontrado.nacionalidad} - ISO 2: {pais_encontrado.iso2} - ISO 3: {pais_encontrado.iso3}\n')
@@ -58,7 +58,7 @@ def eliminar_pais():
         nombre_pais = ''
         while nombre_pais == '':
             nombre_pais = input('Ingrese nombre país a eliminar: ')
-            pais_encontrado = obtener_pais(nombre_pais)
+            pais_encontrado = obtener_pais_nombre(nombre_pais)
             if pais_encontrado:
                 print('Se eliminará el siguiente país:')
                 print(f'\nID: {pais_encontrado.id_pais} - Nombre: {pais_encontrado.pais}')

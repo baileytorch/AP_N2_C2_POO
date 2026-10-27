@@ -19,3 +19,6 @@ class Usuario(BaseModel):
     fecha_incorporacion = DateField()
     habilitado = IntegerField(constraints=[SQL(defecto)])
     password = CharField(max_length=60)
+
+    class Meta:
+            table_name = 'usuarios'

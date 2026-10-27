@@ -1,4 +1,4 @@
-from datos.repositorios.repositorio_paises import listado_paises,guardar_pais
+from datos.repositorios.repositorio_paises import listado_paises,guardar_pais,obtener_pais_nombre
 from prettytable import PrettyTable
 from datos.modelos.pais import Pais
 from auxiliares.mensajes import mensaje_error
@@ -6,6 +6,13 @@ from auxiliares.mensajes import mensaje_error
 
 def lista_paises(tabla_paises:PrettyTable):
     paises = listado_paises()
+    if paises:
+        for pais in paises:
+            tabla_paises.add_row([pais.id_pais, pais.pais, pais.nacionalidad, pais.iso2, pais.iso3, ('Deshabilitado', 'Habilitado')[pais.habilitado]])
+        return tabla_paises
+
+def buscar_paises(tabla_paises:PrettyTable,nombre):
+    paises = obtener_pais_nombre(nombre)
     if paises:
         for pais in paises:
             tabla_paises.add_row([pais.id_pais, pais.pais, pais.nacionalidad, pais.iso2, pais.iso3, ('Deshabilitado', 'Habilitado')[pais.habilitado]])

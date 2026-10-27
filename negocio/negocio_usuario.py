@@ -14,7 +14,7 @@ def lista_usuarios(tabla_usuarios:PrettyTable):
             tabla_usuarios.add_row([usuario.id_usuario, usuario.rut, nombre_completo, usuario.correo, usuario.fecha_nacimiento, usuario.genero])
         return tabla_usuarios
 
-def crear_usuario(str_rut, str_nombre, str_apellido, str_correo, str_pais, str_fecha_nacimiento, str_genero):
+def crear_usuario(str_rut, str_nombre, str_apellido, str_correo, str_pais, str_fecha_nacimiento, str_genero, str_contrasenia):
     nuevo_usuario = Usuario()
     try:
         nuevo_usuario.rut = str_rut
@@ -22,9 +22,10 @@ def crear_usuario(str_rut, str_nombre, str_apellido, str_correo, str_pais, str_f
         nuevo_usuario.apellido = str_apellido
         nuevo_usuario.correo = str_correo
         nuevo_usuario.pais = int(str_pais)
-        # nuevo_usuario.fecha_nacimiento = datetime.strptime(str_fecha_nacimiento, '%d/%m/%Y')
-        nuevo_usuario.fecha_nacimiento = str_fecha_nacimiento
+        nuevo_usuario.fecha_nacimiento = datetime.strptime(str_fecha_nacimiento, '%d/%m/%Y')
+        # nuevo_usuario.fecha_nacimiento = str_fecha_nacimiento
         nuevo_usuario.genero = int(str_genero)
+        nuevo_usuario.password = str_contrasenia
         nuevo_usuario.fecha_incorporacion = datetime.now()
         nuevo_usuario.habilitado = True
 

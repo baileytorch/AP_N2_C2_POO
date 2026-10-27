@@ -21,7 +21,7 @@ def guardar_pais(pais:Pais):
     except PeeweeException as e:
         print(f"No se pudieron guardar los datos por un error genérico: {e}")
 
-def obtener_pais(nombre=''):
+def obtener_pais_nombre(nombre=''):
     if nombre != '':
-        pais_encontrado = Pais.get(Pais.pais == nombre)
+        pais_encontrado = Pais.select().where(Pais.pais.contains(nombre))
     return pais_encontrado
