@@ -1,9 +1,13 @@
+from prettytable import PrettyTable
+import re
+from datetime import datetime
+
 from negocio.negocio_usuario import lista_usuarios,crear_usuario,actualizar_usuario
 from negocio.negocio_pais import buscar_paises
 from datos.repositorios.repositorio_paises import obtener_pais_nombre
-from prettytable import PrettyTable
 from datos.modelos.usuario import Usuario
 from auxiliares.mensajes import mensaje_error
+from auxiliares.validar_rut import validar_rut
 
 def mostrar_usuario():
     try:
@@ -20,25 +24,50 @@ def solicitar_datos_usuario():
     print('Ingrese Datos de Usuario')
     try:
         while rut == '':
-            rut = input('RUT: ')
+            rut = input('RUT (12.345.678-5): ')
+            if not validar_rut(rut):
+                print('RUT Inválido, ingrese nuevamente...')
+                rut = ''
+
         while nombre == '':
             nombre = input('Nombre: ')
+
         while apellido == '':
             apellido = input('Apellido: ')
+
         while correo == '':
             correo = input('Correo: ')
+            patron_correo = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+            if not re.match(patron_correo, correo):
+                print('Correo NO válido, ingrese nuevamente...')
+                correo = ''
+
         while pais == '':
             pais = input('País: ')
             tabla_paises = buscar_paises(tabla_paises, pais)
             print(tabla_paises)
             id_pais = input('ID País:')
+
         while fecha_nacimiento == '':
+            patron_fecha = r'^\b(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/(19\d\d|20\d\d)\b$'
             fecha_nacimiento = input('Fecha Nacimiento (dd/mm/yyyy): ')
+            if not re.match(patron_fecha, fecha_nacimiento):
+                print('Formato de fecha NO corresponde, ingrese nuevamente...')
+                fecha_nacimiento = ''
+            else:
+                try:
+                    datetime.strptime(fecha_nacimiento, "%d/%m/%Y")
+                    return fecha_nacimiento
+                except ValueError:
+                    print('Fecha INVÁLIDA, ingrese nuevamente...')
+                    fecha_nacimiento = ''
+
         while genero == '':
-            print('[1] Masculino \n[2] Femenino \n[3]Otro')
+            print('Género: \n[1] Masculino \n[2] Femenino \n[3]Otro')
             genero = input('Seleccione Género [1-3]: ')
             if genero not in ['1','2','3']:
                 genero = ''
+
         while contrasenia == '':
             contrasenia = input('Contraseña: ')
         
